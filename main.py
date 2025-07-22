@@ -5,7 +5,7 @@ from langchain_groq import ChatGroq
 from langchain_huggingface import HuggingFaceBgeEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import os
-from dotenv import load_dotenv()
+from dotenv import load_dotenv
 load_dotenv()
 
 
