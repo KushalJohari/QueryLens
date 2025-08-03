@@ -1,5 +1,5 @@
 import streamlit as st
-from Loaders import webloader, pdfloader, qa_chain_pdf, qa_chain_web, detect_language, translate
+from Loaders import webloader, pdfloader, qa_chain_pdf, qa_chain_web
 import tempfile
 
 st.title("QueryLens")
@@ -15,12 +15,6 @@ with st.expander("Ask Question from webpage", expanded=False):
         if query:
             result = st.session_state.chain.invoke(query)
             st.success(f"Answer: {result['result']}")
-            # input_lang = detect_language(query)
-        elif detect_language(query) == 'hi':
-            translated_query = translate(query, 'hi_IN', "en_XX")
-            result = st.session_state.chain.invoke(translated_query)
-            translated_answer = translate(result['result'], 'en_XX', 'hi_IN')
-            st.success(translated_answer)
 
 with st.expander("Ask Question from PDF", expanded=False):
     pdf = st.file_uploader("upload your pdf")
@@ -35,9 +29,3 @@ with st.expander("Ask Question from PDF", expanded=False):
         if query:
             result = st.session_state.pdfchain.invoke(query)
             st.success(f"Answer: {result['result']}")
-            # input_lang = detect_language(query)
-        elif detect_language(query) == 'hi':
-            translated_query = translate(query, 'hi_IN', "en_XX")
-            result = st.session_state.pdfchain.invoke(translated_query)
-            translated_answer = translate(result['result'], 'en_XX', 'hi_IN')
-            st.success(translated_answer)
