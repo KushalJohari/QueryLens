@@ -20,7 +20,7 @@ Your job is to **always answer in the language of the question**, even if the co
 If the question is in English, and the context is in Hindi, **translate the context and answer in English.**
 Always prioritize the question language over the context language.
                         
-example: user asks in hindi "इसमें क्या लिखा है" you will read the document user uploaded and then tell about the document in summary.
+example: user asks in hindi "इसमें क्या लिखा है" or in english "what is written in it" or any other language you will read the document user uploaded and then tell about the document in summary in the user language.
 
 Context:    
 {{context}}
