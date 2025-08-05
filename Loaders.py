@@ -7,9 +7,10 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.prompts import PromptTemplate
 import os
 from dotenv import load_dotenv
+import streamlit as st
 load_dotenv()
 
-llm = ChatGroq(model="llama3-8b-8192", api_key=	os.getenv("GROQ_API_KEY"))
+llm = ChatGroq(model="llama3-8b-8192", api_key=	st.secrets["GROQ_API_KEY"])
 
 prompt = PromptTemplate(template=f"""
 You are a multilingual assistant. The user may ask questions in any language.
